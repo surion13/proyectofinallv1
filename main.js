@@ -30,7 +30,7 @@ function showCards(groupsOfCards) {
               >
               <p class="text-sm text-gray-400">${dataCards[i].type}. ${dataCards[i].beds} beds</p>
               <div class="flex items-center gap-1">
-                <img class="w-4 h-4" src="public/star.svg" alt="star icon" />
+                <img class="w-4 h-4" src="/star.svg" alt="star icon" />
                 <p class="text-sm text-gray-500">${dataCards[i].rating}</p>
               </div>
             </div>
@@ -53,7 +53,7 @@ function showCards(groupsOfCards) {
 
               <p class="text-sm text-gray-400">${dataCards[i].type}. ${dataCards[i].beds} beds</p>
               <div class="flex items-center gap-1">
-                <img class="w-4 h-4" src="public/star.svg" alt="star icon" />
+                <img class="w-4 h-4" src="/star.svg" alt="star icon" />
                 <p class="text-sm text-gray-500">${dataCards[i].rating}</p>
               </div>
             </div>
