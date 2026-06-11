@@ -2,9 +2,9 @@ let cards = document.querySelector("#cards");
 
 async function fetchData() {
   try {
-    let response = await fetch("/public/stays.json");
-    let stays = await response.json();
-    return stays;
+    let response = await fetch("/stays.json");
+    let data = await response.json();
+    return data;
   } catch (error) {
     console.error("ups", error);
   }
