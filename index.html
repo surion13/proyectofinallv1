@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style..css" />
+    <script type="module" src="./main.js"></script>
+    <title>proyectofinallv1</title>
+  </head>
+  <body class="min-h-screen relative">
+    <header
+      class="flex flex-col md:flex-row items-start md:items-center justify-between px-6 py-8 max-w-6xl mx-auto"
+    >
+      <img
+        src="public/logo-f7862584.svg"
+        alt="logo"
+        class="w-35 mb-6 md:mb-0 self-start"
+      />
+      <nav
+        class="grid grid-cols-[1fr_1fr_auto] bg-white rounded-2xl overflow-hidden border border-gray-100 self-center"
+      >
+        <button
+          class="px-6 py-4 text-gray-400 border-r border-gray-200 text-sm"
+        >
+          Add location
+        </button>
+        <button
+          class="px-6 py-4 text-gray-400 border-r border-gray-200 text-sm"
+        >
+          Add guests
+        </button>
+        <button class="px-5 py-4 flex items-center justify-center">
+          <img src="public/search.svg" alt="Buscar" class="w-4 h-4" />
+        </button>
+      </nav>
+    </header>
+
+    <div class="hidden fixed inset-0 bg-black/30 z-10"></div>
+
+    <section
+      class="absolute top-0 left-0 w-full bg-white p-6 z-20 shadow-md hidden"
+    >
+      <div class="md:hidden">
+        <div class="flex justify-between items-center mb-8">
+          <p class="font-bold text-sm text-gray-800">Edit your search</p>
+          <button class="text-2xl font-bold text-gray-700">X</button>
+        </div>
+
+        <div class="bg-white overflow-hidden mb-8">
+          <div class="border-b border-gray-100 p-4">
+            <label class="block text-xs font-bold text-gray-700 mb-1" for=""
+              >LOCATION</label
+            >
+            <input
+              class="w-full outline-none text-gray-800"
+              type="text"
+              placeholder="Add location"
+            />
+
+            <ul class="mt-6 space-y-4 hidden">
+              <li>Helsinki, Finland</li>
+              <li>Turku, Finland</li>
+              <li>Vaasa, Finland</li>
+              <li>Oulu, Finland</li>
+            </ul>
+          </div>
+
+          <div class="p-4">
+            <label class="block text-xs font-bold text-gray-700 mb-1" for=""
+              >GUESTS</label
+            >
+            <input
+              class="w-full outline-none text-gray-800"
+              type="text"
+              placeholder="Add guests"
+            />
+          </div>
+
+          <div class="mt-8">
+            <p class="font-bold text-gray-800">Adults</p>
+            <p class="text-gray-400 mb-3">Ages 13 or above</p>
+
+            <div class="flex items-center gap-4">
+              <button
+                class="w-8 h-8 border border-gray-400 rounded flex items-center justify-center"
+              >
+                -
+              </button>
+              <span class="font-bold">0</span>
+              <button
+                class="w-8 h-8 border border-gray-400 rounded flex items-center justify-center"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <p class="font-bold text-gray-800">Children</p>
+            <p class="text-gray-400 mb-3">Ages 13 or above</p>
+
+            <div class="flex items-center gap-4">
+              <button
+                class="w-8 h-8 border border-gray-400 rounded flex items-center justify-center"
+              >
+                -
+              </button>
+              <span>0</span>
+              <button
+                class="w-8 h-8 border border-gray-400 rounded flex items-center justify-center"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="flex justify-center mt-12">
+            <button
+              class="bg-[#EB5757] text-white px-8 py-4 rounded-2xl flex items-center gap-2 shadow-lg"
+            >
+              <img
+                class="w-4 h-4"
+                src="public/search-white.svg"
+                alt="search-white"
+              />
+              <span>search</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="hidden md:block">
+        <div class="max-w-6xl mx-auto p-8">
+          <div
+            class="grid grid-cols-[1fr_1fr_auto] gap-4"
+          >
+            <div class="p-4 border border-transparent rounded-2xl shadow-sm bg-white cursor-pointer hover:border-gray-800">
+              <p class="text-xs font-bold">LOCATION</p>
+
+              <input
+                type="text"
+                placeholder="Add location"
+                class="w-full outline-none mt-1"
+              />
+            </div>
+
+            <div  class="p-4 border border-transparent rounded-2xl shadow-sm bg-white cursor-pointer hover:border-gray-800">
+              <p class="text-xs font-bold">GUESTS</p>
+
+              <input
+                type="text"
+                placeholder="Add guests"
+                class="w-full outline-none mt-1"
+              />
+            </div>
+
+            <div class="flex items-center justify-center px-8">
+              <button
+                class="bg-[#EB5757] text-white px-8 py-4 rounded-2xl flex items-center gap-2"
+              >
+                <img
+                  src="public/search-white.svg"
+                  alt="search white"
+                  class="w-4 h-4"
+                />Search
+              </button>
+            </div>
+          </div>
+
+              <div class="grid grid-cols-2 mt-10">
+
+      <div>
+        <ul class="space-y-6">
+          <li>📍 Helsinki, Finland</li>
+          <li>📍 Turku, Finland</li>
+          <li>📍 Vaasa, Finland</li>
+          <li>📍 Oulu, Finland</li>
+        </ul>
+      </div>
+
+      <div>
+        <div>
+          <p class="font-bold">Adults</p>
+          <p class="text-sm text-gray-400">
+            Ages 13 or above
+          </p>
+
+          <div class="flex items-center gap-4 mt-2">
+            <button class="w-8 h-8 border rounded">-</button>
+            <span>0</span>
+            <button class="w-8 h-8 border rounded">+</button>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <p class="font-bold">Children</p>
+          <p class="text-sm text-gray-400">
+            Ages 2-12
+          </p>
+
+          <div class="flex items-center gap-4 mt-2">
+            <button class="w-8 h-8 border rounded">-</button>
+            <span>0</span>
+            <button class="w-8 h-8 border rounded">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+        </div>
+      </div>
+    </section>
+
+    <main class="max-w-6xl mx-auto px-4 md:px-8 pb-12">
+      <section class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-800">Stays in Finland</h1>
+        <p class="text-sm text-gray-500">12+ stays</p>
+      </section>
+
+      <div id="cards" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+      </div>
+    </main>
+  </body>
+</html>
