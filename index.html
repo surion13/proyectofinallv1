@@ -39,18 +39,28 @@
 
     <div id="overlay" class="fixed inset-0 bg-black/30 z-10 hidden"></div>
 
-    <section id="menu"
+    <section
+      id="menu"
       class="dark:bg-gray-800 absolute top-0 left-0 w-full bg-white p-6 z-20 shadow-md hidden"
     >
       <div class="md:hidden">
         <div class="flex justify-between items-center mb-8">
-          <p class="font-bold text-sm text-gray-800 dark:text-white">Edit your search</p>
-          <button id="hideX" class="text-2xl font-bold text-gray-700 dark:text-white">X</button>
+          <p class="font-bold text-sm text-gray-800 dark:text-white">
+            Edit your search
+          </p>
+          <button
+            id="hideX"
+            class="text-2xl font-bold text-gray-700 dark:text-white"
+          >
+            X
+          </button>
         </div>
 
         <div class="bg-white overflow-hidden mb-8 dark:bg-gray-800">
           <div class="border-b border-gray-100 p-4">
-            <label class="block text-xs font-bold text-gray-700 mb-1 dark:text-gray-200" for=""
+            <label
+              class="block text-xs font-bold text-gray-700 mb-1 dark:text-gray-200"
+              for=""
               >LOCATION</label
             >
             <input
@@ -60,12 +70,13 @@
               placeholder="Add location"
             />
 
-            <ul id="locationListMobile" class="mt-6 space-y-4 hidden">
-            </ul>
+            <ul id="locationListMobile" class="mt-6 space-y-4 hidden"></ul>
           </div>
 
           <div class="p-4">
-            <label class="block text-xs font-bold text-gray-700 mb-1 dark:text-gray-200" for=""
+            <label
+              class="block text-xs font-bold text-gray-700 mb-1 dark:text-gray-200"
+              for=""
               >GUESTS</label
             >
             <input
@@ -111,7 +122,7 @@
               </button>
               <span id="childrenMobile">0</span>
               <button
-              id="additionBtn2Mobile"
+                id="additionBtn2Mobile"
                 class="w-8 h-8 border border-gray-400 rounded flex items-center justify-center"
               >
                 +
@@ -135,14 +146,12 @@
         </div>
       </div>
 
-
-
       <div class="hidden md:block">
         <div class="max-w-6xl mx-auto p-8">
-          <div
-            class="grid grid-cols-[1fr_1fr_auto] gap-4"
-          >
-            <div class="p-4 border border-transparent rounded-2xl shadow-sm bg-white cursor-pointer hover:border-gray-800">
+          <div class="grid grid-cols-[1fr_1fr_auto] gap-4">
+            <div
+              class="p-4 border border-transparent rounded-2xl shadow-sm bg-white cursor-pointer hover:border-gray-800"
+            >
               <p class="text-xs font-bold dark:text-black">LOCATION</p>
 
               <input
@@ -153,7 +162,9 @@
               />
             </div>
 
-            <div  class="p-4 border border-transparent rounded-2xl shadow-sm bg-white cursor-pointer hover:border-gray-800">
+            <div
+              class="p-4 border border-transparent rounded-2xl shadow-sm bg-white cursor-pointer hover:border-gray-800"
+            >
               <p class="text-xs font-bold dark:text-black">GUESTS</p>
 
               <input
@@ -167,7 +178,7 @@
 
             <div class="flex items-center justify-center px-8">
               <button
-              id="searchDesktopHide"
+                id="searchDesktopHide"
                 class="bg-[#EB5757] text-white px-8 py-4 rounded-2xl flex items-center gap-2"
               >
                 <img
@@ -179,58 +190,77 @@
             </div>
           </div>
 
-              <div class="grid grid-cols-2 mt-10">
+          <div class="grid grid-cols-2 mt-10">
+            <div>
+              <ul id="locationListDesktop" class="space-y-6"></ul>
+            </div>
 
-      <div>
-        <ul id="locationListDesktop" class="space-y-6">
-        </ul>
-      </div>
+            <div>
+              <div>
+                <p class="font-bold">Adults</p>
+                <p class="text-sm text-gray-400">Ages 13 or above</p>
 
-      <div>
-        <div>
-          <p class="font-bold">Adults</p>
-          <p class="text-sm text-gray-400">
-            Ages 13 or above
-          </p>
+                <div class="flex items-center gap-4 mt-2">
+                  <button
+                    id="substractionBtn1Desktop"
+                    class="w-8 h-8 border rounded"
+                  >
+                    -
+                  </button>
+                  <span id="adultsDesktop">0</span>
+                  <button
+                    id="additionBtn1Desktop"
+                    class="w-8 h-8 border rounded"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
 
-          <div class="flex items-center gap-4 mt-2">
-            <button id="substractionBtn1Desktop" class="w-8 h-8 border rounded">-</button>
-            <span id="adultsDesktop">0</span>
-            <button id="additionBtn1Desktop" class="w-8 h-8 border rounded">+</button>
+              <div class="mt-8">
+                <p class="font-bold">Children</p>
+                <p class="text-sm text-gray-400">Ages 2-12</p>
+
+                <div class="flex items-center gap-4 mt-2">
+                  <button
+                    id="substractionBtn2Desktop"
+                    class="w-8 h-8 border rounded"
+                  >
+                    -
+                  </button>
+                  <span id="childrenDesktop">0</span>
+                  <button
+                    id="additionBtn2Desktop"
+                    class="w-8 h-8 border rounded"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="mt-8">
-          <p class="font-bold">Children</p>
-          <p class="text-sm text-gray-400">
-            Ages 2-12
-          </p>
-
-          <div class="flex items-center gap-4 mt-2">
-            <button id="substractionBtn2Desktop" class="w-8 h-8 border rounded">-</button>
-            <span id="childrenDesktop">0</span>
-            <button id="additionBtn2Desktop" class="w-8 h-8 border rounded">+</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
         </div>
       </div>
     </section>
 
-
     <main class="max-w-6xl mx-auto px-4 md:px-8 pb-12">
       <section class="flex justify-between items-center mb-8">
-        <h1 class="text-3xl font-bold text-gray-800 dark:text-white">Stays in Finland</h1>
+        <h1 class="text-3xl font-bold text-gray-800 dark:text-white">
+          Stays in Finland
+        </h1>
         <p id="staysCount" class="text-sm text-gray-500"></p>
       </section>
 
-      <div id="cards" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-
-      </div>
+      <div
+        id="cards"
+        class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+      ></div>
     </main>
-    <button class="mb-4 ml-4 border border-black rounded-2xl p-2 dark:border-white" id="darkmode">🌙Dark mode</button>
+    <button
+      class="mb-4 ml-4 border border-black rounded-2xl p-2 dark:border-white"
+      id="darkmode"
+    >
+      🌙Dark mode
+    </button>
   </body>
 </html>

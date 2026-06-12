@@ -12,9 +12,8 @@ async function fetchData() {
 
 let dataCards = await fetchData();
 
-
 function showCards(groupsOfCards) {
-  cards.innerHTML = ""
+  cards.innerHTML = "";
 
   for (let i = 0; i < groupsOfCards.length; i++) {
     if (groupsOfCards[i].superHost === true) {
@@ -72,228 +71,219 @@ function showCards(groupsOfCards) {
 
 showCards(dataCards);
 
+let menu = document.querySelector("#menu");
+let show = document.querySelectorAll(".open-menu");
+let hideX = document.querySelector("#hideX");
+let overlay = document.querySelector("#overlay");
 
-let menu = document.querySelector("#menu")
-let show = document.querySelectorAll(".open-menu")
-let hideX = document.querySelector("#hideX")
-let overlay = document.querySelector("#overlay")
-
-
-show.forEach(button => {
+show.forEach((button) => {
   button.addEventListener("click", () => {
-    menu.classList.remove("hidden")
-    overlay.classList.remove("hidden")
-  })
-})
+    menu.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+  });
+});
 
-let searchBtnHide = document.querySelector("#searchBtnHide")
-let searchDesktop = document.querySelector("#searchDesktopHide")
+let searchBtnHide = document.querySelector("#searchBtnHide");
+let searchDesktop = document.querySelector("#searchDesktopHide");
 
 function closeMenu() {
-  menu.classList.add("hidden")
-  overlay.classList.add("hidden")
+  menu.classList.add("hidden");
+  overlay.classList.add("hidden");
 }
 
-hideX.addEventListener("click", closeMenu)
+hideX.addEventListener("click", closeMenu);
 
-searchBtnHide.addEventListener("click", closeMenu)
+searchBtnHide.addEventListener("click", closeMenu);
 
-searchDesktop.addEventListener("click", closeMenu)
+searchDesktop.addEventListener("click", closeMenu);
 
-overlay.addEventListener("click", closeMenu)
+overlay.addEventListener("click", closeMenu);
 
-let inputMobile = document.querySelector("#inputMobile")
-let substractionBtn1Mobile = document.querySelector("#substractionBtn1Mobile")
-let additionBtn1Mobile = document.querySelector("#additionBtn1Mobile")
-let substractionBtn2Mobile = document.querySelector("#substractionBtn2Mobile")
-let additionBtn2Mobile = document.querySelector("#additionBtn2Mobile")
+let inputMobile = document.querySelector("#inputMobile");
+let substractionBtn1Mobile = document.querySelector("#substractionBtn1Mobile");
+let additionBtn1Mobile = document.querySelector("#additionBtn1Mobile");
+let substractionBtn2Mobile = document.querySelector("#substractionBtn2Mobile");
+let additionBtn2Mobile = document.querySelector("#additionBtn2Mobile");
 
-let inputDesktop = document.querySelector("#inputDesktop")
-let substractionBtn1Desktop = document.querySelector("#substractionBtn1Desktop")
-let additionBtn1Desktop = document.querySelector("#additionBtn1Desktop")
-let substractionBtn2Desktop = document.querySelector("#substractionBtn2Desktop")
-let additionBtn2Desktop = document.querySelector("#additionBtn2Desktop")
+let inputDesktop = document.querySelector("#inputDesktop");
+let substractionBtn1Desktop = document.querySelector(
+  "#substractionBtn1Desktop",
+);
+let additionBtn1Desktop = document.querySelector("#additionBtn1Desktop");
+let substractionBtn2Desktop = document.querySelector(
+  "#substractionBtn2Desktop",
+);
+let additionBtn2Desktop = document.querySelector("#additionBtn2Desktop");
 
-let adultsMobile = document.querySelector("#adultsMobile")
-let childrenMobile = document.querySelector("#childrenMobile")
+let adultsMobile = document.querySelector("#adultsMobile");
+let childrenMobile = document.querySelector("#childrenMobile");
 
-let adultsDesktop = document.querySelector("#adultsDesktop")
-let childrenDesktop = document.querySelector("#childrenDesktop")
+let adultsDesktop = document.querySelector("#adultsDesktop");
+let childrenDesktop = document.querySelector("#childrenDesktop");
 
-let staysCount = document.querySelector("#staysCount")
+let staysCount = document.querySelector("#staysCount");
 
-let locationInputMobile = document.querySelector("#locationInputMobile")
-let locationInputDesktop = document.querySelector("#locationInputDesktop")
+let locationInputMobile = document.querySelector("#locationInputMobile");
+let locationInputDesktop = document.querySelector("#locationInputDesktop");
 
-let locationListMobile = document.querySelector("#locationListMobile")
-let locationListDesktop = document.querySelector("#locationListDesktop")
+let locationListMobile = document.querySelector("#locationListMobile");
+let locationListDesktop = document.querySelector("#locationListDesktop");
 
-let adults = 0
-let children = 0
+let adults = 0;
+let children = 0;
 
-let selectedLocation = ""
+let selectedLocation = "";
 
 function showLocationSuggestions(searchText) {
-
-  locationListMobile.innerHTML = ""
-  locationListDesktop.innerHTML = ""
+  locationListMobile.innerHTML = "";
+  locationListDesktop.innerHTML = "";
 
   if (searchText.trim() === "") {
-    return
+    return;
   }
 
-  let cities = [...new Set(dataCards.map(card => card.city))]
+  let cities = [...new Set(dataCards.map((card) => card.city))];
 
-  let filteredCities = cities.filter(city =>
-    city.toLowerCase().includes(searchText.toLowerCase())
-  )
+  let filteredCities = cities.filter((city) =>
+    city.toLowerCase().includes(searchText.toLowerCase()),
+  );
 
-  filteredCities.forEach(city => {
+  filteredCities.forEach((city) => {
+    let mobileItem = document.createElement("li");
+    mobileItem.textContent = `${city}, Finland`;
+    mobileItem.classList.add("cursor-pointer");
 
-  let mobileItem = document.createElement("li")
-  mobileItem.textContent = `${city}, Finland`
-  mobileItem.classList.add("cursor-pointer")
+    mobileItem.addEventListener("click", () => {
+      selectedLocation = city;
 
-  mobileItem.addEventListener("click", () => {
+      locationInputMobile.value = city;
+      locationInputDesktop.value = city;
 
-    selectedLocation = city
+      locationListMobile.innerHTML = "";
+      locationListDesktop.innerHTML = "";
 
-    locationInputMobile.value = city
-    locationInputDesktop.value = city
-    
-    locationListMobile.innerHTML = ""
-    locationListDesktop.innerHTML = ""
+      filterCards();
+    });
 
-    filterCards()
-  })
+    locationListMobile.appendChild(mobileItem);
 
-  locationListMobile.appendChild(mobileItem)
+    let desktopItem = document.createElement("li");
+    desktopItem.textContent = `📍 ${city}, Finland`;
+    desktopItem.classList.add("cursor-pointer");
 
-  let desktopItem = document.createElement("li")
-  desktopItem.textContent = `📍 ${city}, Finland`
-  desktopItem.classList.add("cursor-pointer")
+    desktopItem.addEventListener("click", () => {
+      selectedLocation = city;
 
-  desktopItem.addEventListener("click", () => {
+      locationInputMobile.value = city;
+      locationInputDesktop.value = city;
 
-    selectedLocation = city
+      locationListMobile.innerHTML = "";
+      locationListDesktop.innerHTML = "";
 
-    locationInputMobile.value = city
-    locationInputDesktop.value = city
+      filterCards();
+    });
 
-    locationListMobile.innerHTML = ""
-    locationListDesktop.innerHTML = ""
-
-    filterCards()
-  })
-
-  locationListDesktop.appendChild(desktopItem)
-
-})
-
+    locationListDesktop.appendChild(desktopItem);
+  });
 }
 
 locationInputMobile.addEventListener("input", () => {
+  selectedLocation = locationInputMobile.value;
 
-  selectedLocation = locationInputMobile.value
+  showLocationSuggestions(selectedLocation);
 
-  showLocationSuggestions(selectedLocation)
-
-  filterCards()
-})
+  filterCards();
+});
 
 locationInputDesktop.addEventListener("input", () => {
+  selectedLocation = locationInputDesktop.value;
 
-  selectedLocation = locationInputDesktop.value
+  showLocationSuggestions(selectedLocation);
 
-  showLocationSuggestions(selectedLocation)
-
-  filterCards()
-})
+  filterCards();
+});
 
 function updateGuests() {
-  let guests = adults + children
+  let guests = adults + children;
 
-  inputMobile.value = guests
-  inputDesktop.value = guests
+  inputMobile.value = guests;
+  inputDesktop.value = guests;
 
-  adultsMobile.textContent = adults
-  adultsDesktop.textContent = adults
+  adultsMobile.textContent = adults;
+  adultsDesktop.textContent = adults;
 
-  childrenMobile.textContent = children
-  childrenDesktop.textContent = children
+  childrenMobile.textContent = children;
+  childrenDesktop.textContent = children;
 
-  filterCards()
+  filterCards();
 }
-
 
 additionBtn1Mobile.addEventListener("click", () => {
   if (adults + children < 10) {
-    adults++
-    updateGuests()
+    adults++;
+    updateGuests();
   }
-})
+});
 additionBtn2Mobile.addEventListener("click", () => {
   if (adults + children < 10) {
-    children++
-    updateGuests()
+    children++;
+    updateGuests();
   }
-})
+});
 substractionBtn1Mobile.addEventListener("click", () => {
   if (adults > 0) {
-    adults--
-    updateGuests()
+    adults--;
+    updateGuests();
   }
-})
+});
 substractionBtn2Mobile.addEventListener("click", () => {
   if (children > 0) {
-    children--
-    updateGuests()
+    children--;
+    updateGuests();
   }
-})
-
+});
 
 additionBtn1Desktop.addEventListener("click", () => {
   if (adults + children < 10) {
-    adults++
-    updateGuests()
+    adults++;
+    updateGuests();
   }
-})
+});
 additionBtn2Desktop.addEventListener("click", () => {
   if (adults + children < 10) {
-    children++
-    updateGuests()
+    children++;
+    updateGuests();
   }
-})
+});
 substractionBtn1Desktop.addEventListener("click", () => {
   if (adults > 0) {
-    adults--
-    updateGuests()
+    adults--;
+    updateGuests();
   }
-})
+});
 substractionBtn2Desktop.addEventListener("click", () => {
   if (children > 0) {
-    children--
-    updateGuests()
+    children--;
+    updateGuests();
   }
-})
+});
 
-updateGuests()
-
+updateGuests();
 
 function filterCards() {
-  let guests = adults + children
+  let guests = adults + children;
 
-  let filteredCards = dataCards.filter(card => {
-    let matchGuests = card.maxGuests >= guests
+  let filteredCards = dataCards.filter((card) => {
+    let matchGuests = card.maxGuests >= guests;
 
     let matchLocation =
       selectedLocation === "" ||
-      card.city.toLowerCase().includes(selectedLocation.toLowerCase())
+      card.city.toLowerCase().includes(selectedLocation.toLowerCase());
 
-    return matchGuests && matchLocation
-  })
+    return matchGuests && matchLocation;
+  });
 
-  staysCount.textContent = `${filteredCards.length} stays`
+  staysCount.textContent = `${filteredCards.length} stays`;
 
-  showCards(filteredCards)
+  showCards(filteredCards);
 }
