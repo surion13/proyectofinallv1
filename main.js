@@ -37,7 +37,7 @@ function showCards(groupsOfCards) {
                 <p class="text-sm text-gray-500">${groupsOfCards[i].rating}</p>
               </div>
             </div>
-            <h2 class="mt-2 text-lg font-semibold text-gray-800">
+            <h2 class="mt-2 text-lg font-semibold text-gray-800 dark:text-white">
               ${groupsOfCards[i].title}
             </h2>
           </div>
@@ -60,7 +60,7 @@ function showCards(groupsOfCards) {
                 <p class="text-sm text-gray-500">${groupsOfCards[i].rating}</p>
               </div>
             </div>
-            <h2 class="mt-2 text-lg font-semibold text-gray-800">
+            <h2 class="mt-2 text-lg font-semibold text-gray-800 dark:text-white">
               ${groupsOfCards[i].title}
             </h2>
           </div>
