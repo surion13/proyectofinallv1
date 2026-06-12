@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style..css" />
+    <link rel="stylesheet" href="./style.css" />
     <script type="module" src="./main.js"></script>
+    <script type="module" src="./darkmode.js"></script>
     <title>proyectofinallv1</title>
   </head>
-  <body class="min-h-screen relative">
+  <body class="dark:text-white dark:bg-black min-h-screen relative">
     <header
-      class="flex flex-col md:flex-row items-start md:items-center justify-between px-6 py-8 max-w-6xl mx-auto"
+      class="dark:text-white flex flex-col md:flex-row items-start md:items-center justify-between px-6 py-8 max-w-6xl mx-auto"
     >
       <img
         src="public/logo-f7862584.svg"
@@ -18,7 +19,7 @@
         class="w-35 mb-6 md:mb-0 self-start"
       />
       <nav
-        class="grid grid-cols-[1fr_1fr_auto] bg-white rounded-2xl overflow-hidden border border-gray-100 self-center"
+        class="dark:bg-gray-800 dark:border-gray-700 grid grid-cols-[1fr_1fr_auto] bg-white rounded-2xl overflow-hidden border border-gray-100 self-center"
       >
         <button
           class="open-menu px-6 py-4 text-gray-400 border-r border-gray-200 text-sm"
@@ -39,7 +40,7 @@
     <div id="overlay" class="fixed inset-0 bg-black/30 z-10 hidden"></div>
 
     <section id="menu"
-      class="absolute top-0 left-0 w-full bg-white p-6 z-20 shadow-md hidden"
+      class="dark:bg-gray-800 absolute top-0 left-0 w-full bg-white p-6 z-20 shadow-md hidden"
     >
       <div class="md:hidden">
         <div class="flex justify-between items-center mb-8">
@@ -53,16 +54,13 @@
               >LOCATION</label
             >
             <input
+              id="locationInputMobile"
               class="w-full outline-none text-gray-800"
               type="text"
               placeholder="Add location"
             />
 
-            <ul class="mt-6 space-y-4 hidden">
-              <li>Helsinki, Finland</li>
-              <li>Turku, Finland</li>
-              <li>Vaasa, Finland</li>
-              <li>Oulu, Finland</li>
+            <ul id="locationListMobile" class="mt-6 space-y-4 hidden">
             </ul>
           </div>
 
@@ -74,6 +72,7 @@
               id="inputMobile"
               class="w-full outline-none text-gray-800"
               type="text"
+              readonly
               placeholder="Add guests"
             />
           </div>
@@ -89,7 +88,7 @@
               >
                 -
               </button>
-              <span class="font-bold">0</span>
+              <span id="adultsMobile" class="font-bold">0</span>
               <button
                 id="additionBtn1Mobile"
                 class="w-8 h-8 border border-gray-400 rounded flex items-center justify-center"
@@ -110,7 +109,7 @@
               >
                 -
               </button>
-              <span>0</span>
+              <span id="childrenMobile">0</span>
               <button
               id="additionBtn2Mobile"
                 class="w-8 h-8 border border-gray-400 rounded flex items-center justify-center"
@@ -147,6 +146,7 @@
               <p class="text-xs font-bold">LOCATION</p>
 
               <input
+                id="locationInputDesktop"
                 type="text"
                 placeholder="Add location"
                 class="w-full outline-none mt-1"
@@ -159,6 +159,7 @@
               <input
                 id="inputDesktop"
                 type="text"
+                readonly
                 placeholder="Add guests"
                 class="w-full outline-none mt-1"
               />
@@ -181,11 +182,7 @@
               <div class="grid grid-cols-2 mt-10">
 
       <div>
-        <ul class="space-y-6">
-          <li>📍 Helsinki, Finland</li>
-          <li>📍 Turku, Finland</li>
-          <li>📍 Vaasa, Finland</li>
-          <li>📍 Oulu, Finland</li>
+        <ul id="locationListDesktop" class="space-y-6">
         </ul>
       </div>
 
@@ -198,7 +195,7 @@
 
           <div class="flex items-center gap-4 mt-2">
             <button id="substractionBtn1Desktop" class="w-8 h-8 border rounded">-</button>
-            <span>0</span>
+            <span id="adultsDesktop">0</span>
             <button id="additionBtn1Desktop" class="w-8 h-8 border rounded">+</button>
           </div>
         </div>
@@ -211,7 +208,7 @@
 
           <div class="flex items-center gap-4 mt-2">
             <button id="substractionBtn2Desktop" class="w-8 h-8 border rounded">-</button>
-            <span>0</span>
+            <span id="childrenDesktop">0</span>
             <button id="additionBtn2Desktop" class="w-8 h-8 border rounded">+</button>
           </div>
         </div>
@@ -226,13 +223,14 @@
 
     <main class="max-w-6xl mx-auto px-4 md:px-8 pb-12">
       <section class="flex justify-between items-center mb-8">
-        <h1 class="text-3xl font-bold text-gray-800">Stays in Finland</h1>
-        <p class="text-sm text-gray-500">12+ stays</p>
+        <h1 class="text-3xl font-bold text-gray-800 dark:text-white">Stays in Finland</h1>
+        <p id="staysCount" class="text-sm text-gray-500"></p>
       </section>
 
       <div id="cards" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
       </div>
     </main>
+    <button class="border border-black rounded-2xl p-2 dark:border-white" id="darkmode">🌙Dark mode</button>
   </body>
 </html>
